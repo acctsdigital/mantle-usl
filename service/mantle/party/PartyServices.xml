@@ -375,6 +375,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="currencyUomId"/>
             <parameter name="locale"/>
             <parameter name="timeZone"/>
+            <parameter name="externalUserId"/>
 
             <!-- removed because creates a security hole as any open access to this service that doesn't restrict this parameter could be used to get admin access to system: <parameter name="userGroupId"/> -->
             <parameter name="roleTypeId"/>
@@ -443,6 +444,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="currencyUomId"/>
             <parameter name="locale"/>
             <parameter name="timeZone"/>
+            <parameter name="externalUserId"/>
         </in-parameters>
         <actions>
             <if condition="!userId &amp;&amp; !partyId"><return error="true" message="To update account must specify either userId or partyId"/></if>
