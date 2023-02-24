@@ -455,7 +455,10 @@ along with this software (see the LICENSE.md file). If not, see
                 <entity-find-one entity-name="moqui.security.UserAccount" value-field="userAccount"/>
                 <set field="partyId" from="userAccount.partyId"/>
             </else-if></if>
-            <if condition="userId"><service-call name="org.moqui.impl.UserServices.update#UserAccount" in-map="context"/></if>
+            <if condition="userId">
+                <set field="userFullName" value="${ec.resource.expand('PartyFullNameTemplate','')}"/>
+                <service-call name="org.moqui.impl.UserServices.update#UserAccount" in-map="context"/>
+            </if>
             <set field="prePartyId" from="partyId"/>
             <service-call name="store#mantle.party.Party" in-map="context" out-map="context"/>
             <service-call name="store#mantle.party.Person" in-map="context"/>
